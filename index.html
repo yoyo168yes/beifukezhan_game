@@ -259,9 +259,11 @@ code{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono",
 .spoil:hover{filter:blur(4px)}
 .spoil.shown{filter:none;cursor:auto;user-select:text;-webkit-user-select:text}
 .spoil:focus-visible{outline:1px dashed var(--ink);outline-offset:3px}
-img.spoil{filter:blur(12px)}
-img.spoil:hover{filter:blur(10px)}
-img.spoil.shown{filter:none}
+img.spoil,.swatches.spoil{filter:blur(12px) grayscale(1)}
+img.spoil:hover,.swatches.spoil:hover{filter:blur(10px) grayscale(1)}
+img.spoil.shown,.swatches.spoil.shown{filter:none}
+.swatches.spoil{filter:blur(6px) grayscale(1)}
+.swatches.spoil:hover{filter:blur(4px) grayscale(1)}
 .spoil-hint{font-size:14px;color:var(--ink-soft);letter-spacing:.12em;margin:-8px 0 8px}
 @media (hover:none){html,body,a,button{cursor:auto}}
 </style>
@@ -577,7 +579,7 @@ img.spoil.shown{filter:none}
       </article>
       <article class="clue" id="clue-today">
         <h4><span class="side f">女廁</span>今天是什麼日子？</h4>
-        <div class="clue-b"><p>在內臟教網站點擊「今日占卜」，得出「<span class="spoil" tabindex="0" role="button" aria-label="解答已隱藏，點一下顯示">今天是獲得內臟庇佑的好日子</span>」。</p></div>
+        <div class="clue-b"><p>在內臟教網站點擊「今日占卜」，得出「<span class="spoil" tabindex="0" role="button" aria-label="解答已隱藏，點一下顯示">獲得內臟庇佑的好日子</span>」。</p></div>
       </article>
       <article class="clue" id="clue-control">
         <h4><span class="side h">隱藏</span>控制室的密碼</h4>

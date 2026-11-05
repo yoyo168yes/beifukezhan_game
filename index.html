@@ -256,14 +256,14 @@ code{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono",
 }
 /* 解答模糊 */
 .spoil{filter:blur(6px);cursor:pointer;transition:filter .3s;user-select:none;-webkit-user-select:none}
-.spoil:hover{filter:blur(4px)}
+.spoil:not(.shown):hover{filter:blur(4px)}
 .spoil.shown{filter:none;cursor:auto;user-select:text;-webkit-user-select:text}
 .spoil:focus-visible{outline:1px dashed var(--ink);outline-offset:3px}
 img.spoil,.swatches.spoil{filter:blur(12px) grayscale(1)}
-img.spoil:hover,.swatches.spoil:hover{filter:blur(10px) grayscale(1)}
+img.spoil:not(.shown):hover,.swatches.spoil:not(.shown):hover{filter:blur(10px) grayscale(1)}
 img.spoil.shown,.swatches.spoil.shown{filter:none}
-.swatches.spoil{filter:blur(6px) grayscale(1)}
-.swatches.spoil:hover{filter:blur(4px) grayscale(1)}
+.swatches.spoil:not(.shown){filter:blur(6px) grayscale(1)}
+.swatches.spoil:not(.shown):hover{filter:blur(4px) grayscale(1)}
 .spoil-hint{font-size:14px;color:var(--ink-soft);letter-spacing:.12em;margin:-8px 0 8px}
 @media (hover:none){html,body,a,button{cursor:auto}}
 </style>

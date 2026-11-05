@@ -810,7 +810,7 @@ img.spoil.shown,.swatches.spoil.shown{filter:none}
       else{sc.beginPath();sc.arc(s.x,s.y,s.r,0,Math.PI*2);sc.fill()}
     }
     for(const b of planets){
-      const tw=reduce?1:.8+.2*Math.sin(b.p+t*b.s);
+      const tw=1; /* 大星星不閃爍 */
       sc.fillStyle=`rgba(20,20,20,${.55+.35*tw})`;
       starShape(sc,b.x*W,b.y*H,b.r*tw);
     }

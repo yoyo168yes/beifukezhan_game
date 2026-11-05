@@ -760,15 +760,18 @@ img.spoil.shown,.swatches.spoil.shown{filter:none}
     const col=document.querySelector(".view:not([hidden])").getBoundingClientRect();
     const narrow=W<760;
     const zx0=col.left-24,zx1=col.left+Math.min(col.width,672)+32;
-    const n=Math.round(W*H/(narrow?16000:8000));
+    /* 固定種子亂數：同樣的視窗大小，每次重整星星位置都一樣 */
+    let seed=20261102;
+    const rnd=()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+    const n=Math.round(W*H/(narrow?26000:13000));
     stars=[];
     for(let tries=0;stars.length<n&&tries<n*30;tries++){
-      const x=Math.random()*W,y=Math.random()*H;
-      if(Math.random()<(y/H)*.85)continue;           /* 越往下越稀疏 */
+      const x=rnd()*W,y=rnd()*H;
+      if(rnd()<(y/H)*.85)continue;           /* 越往下越稀疏 */
       if(!narrow&&y>hdr&&x>zx0&&x<zx1)continue;     /* 避開文字欄 */
       stars.push({x,y,
-        r:Math.random()<.12?2.2+Math.random()*2.6:.5+Math.random()*1.1,
-        p:Math.random()*Math.PI*2,s:.4+Math.random()*1.2,
+        r:rnd()<.12?2.2+rnd()*2.6:.5+rnd()*1.1,
+        p:rnd()*Math.PI*2,s:.4+rnd()*1.2,
         k:narrow&&y>hdr?.45:1});
     }
     const base=Math.min(W,H);
